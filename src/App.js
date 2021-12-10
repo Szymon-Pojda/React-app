@@ -1,7 +1,12 @@
+import Hero from './Hero/Hero'
+import SearchForm from './SearchForm/SearchForm'
+
 const App = () => {
   return (
-    <h1>Hello world</h1>
+    <div>
+      <Hero />
+      <SearchForm />
+    </div>
   );
 };
-
 export default App;
