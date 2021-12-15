@@ -3,6 +3,7 @@ import Column from './../Column/Column';
 import ColumnForm from './../ColumnForm/ColumnForm';
 import { useState } from 'react';
 import shortid from 'shortid';
+import Card from '../Card/Card';
 
 const List = () => {
   const [columns, setColumns] = useState([
