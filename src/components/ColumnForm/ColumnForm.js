@@ -13,7 +13,7 @@ const ColumnForm = props => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.columnForm} onSubmit={handleSubmit}>
             Title: <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
             Icon: <input type="text" value={icon} onChange={e => setIcon(e.target.value)} />
 
