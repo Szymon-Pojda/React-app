@@ -43,9 +43,9 @@ const List = () => {
   const addCard = (newCard, columnId) => {
 		const columnsUpdated = columns.map(column => {
 			if(column.id === columnId)
-				return { ...column, cards: [...column.cards, { id: shortid(), title: newCard.title }]}
+				return { ...column, cards: [...column.cards, { id: shortid(), title: newCard.title, columnId, }]}
 			else
-				return column
+				return column;
 		})
 
 		setColumns(columnsUpdated);
