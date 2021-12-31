@@ -9,7 +9,7 @@ const CardForm = props => {
     const [title, setTitle] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: 'ADD_CARD', newCard: { title } });
+        dispatch({ type: 'ADD_CARD', newCard: { title, columnId: props.columnId } });
         
         
     };

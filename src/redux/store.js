@@ -1,16 +1,17 @@
 import { createStore } from 'redux';
 import initialState from './initialState';
+import shortid from 'shortid';
 
-
-const reducer = (state, action, shortid) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }] };
-    default:
-      return state;
+      console.log('add columns', action);
+      return { ...state, columns: [...state.columns, { ...action.newColumn, id: shortid() }] };
+  
       
     case 'ADD_CARD':
-      return { ...state, card: [...state.card, { ...action.payload, id: shortid() }] };
+      console.log('add cards',  { ...state, cards: [...state.cards, { ...action.newCard, id: shortid() }] });
+      return { ...state, cards: [...state.cards, { ...action.newCard, id: shortid() }] };
     default:
       return state;
   }
