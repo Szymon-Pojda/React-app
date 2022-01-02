@@ -7,11 +7,16 @@ const reducer = (state, action) => {
     case 'ADD_COLUMN':
       console.log('add columns', action);
       return { ...state, columns: [...state.columns, { ...action.newColumn, id: shortid() }] };
-  
-      
+
+
     case 'ADD_CARD':
-      console.log('add cards',  { ...state, cards: [...state.cards, { ...action.newCard, id: shortid() }] });
+      console.log('add cards', { ...state, cards: [...state.cards, { ...action.newCard, id: shortid() }] });
       return { ...state, cards: [...state.cards, { ...action.newCard, id: shortid() }] };
+
+    case 'UPDATE_SEARCHSTRING':
+      console.log('update searchString', action);
+      return { ...state, searchString: action.payload };
+
     default:
       return state;
   }
