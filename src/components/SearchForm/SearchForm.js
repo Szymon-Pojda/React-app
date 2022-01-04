@@ -11,7 +11,7 @@ const SearchForm = props => {
     
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: 'UPDATE_SEARCHSTRING', newSearch: { search }});
+        dispatch({ type: 'UPDATE_SEARCHSTRING', payload: search });
         setSearch('');
           
     }
@@ -24,10 +24,9 @@ const SearchForm = props => {
 
 
     return (
-        <form className={styles.searchForm}>
-            <TextInput placeholder="Search..." />
-            <Button className={styles.searchForm} onChange={handleSubmit}>
-            Search: <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
+        <form className={styles.searchForm} onSubmit={handleSubmit}>
+            <TextInput placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)}  />
+            <Button className={styles.searchForm} type="submit">
                 <span className="fa fa-search" />
             </Button>
         </form>
