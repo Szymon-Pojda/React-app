@@ -10,11 +10,19 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards
 // action creators
 export const getAllColumns = ({columns}) => columns;
 
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
+export const addColumn = newColumn => ({ type: 'ADD_COLUMN', newColumn });
 
 export const addCard = newCard => ({ type: 'ADD_CARD', newCard});
 
-export const getSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload})
+export const addList = payload => ({ type: 'ADD_LIST', payload});
+
+export const getSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload});
+
+export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
+
+export const getColumnsByList = ({ columns }, listId) => columns.filter(column => column.listId === listId)
+
+export const getAllLists = ({ lists }) => lists;
 
 const reducer = (state, action) => {
   switch (action.type) {
