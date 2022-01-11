@@ -7,16 +7,20 @@ import strContains from '../utils/strContains';
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards
   .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
+export const getFilteredFavoriteCards = ({ cards }) => cards.filter(card => card.isFavorite === true);
+
 // action creators
-export const getAllColumns = ({columns}) => columns;
+export const getAllColumns = ({ columns }) => columns;
 
 export const addColumn = newColumn => ({ type: 'ADD_COLUMN', newColumn });
 
-export const addCard = newCard => ({ type: 'ADD_CARD', newCard});
+export const addCard = newCard => ({ type: 'ADD_CARD', newCard });
 
-export const addList = payload => ({ type: 'ADD_LIST', payload});
+export const addList = payload => ({ type: 'ADD_LIST', payload });
 
-export const getSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload});
+export const getSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
+
+export const getToggleCardFavorite = payload => ({type: 'TOGGLE_CARD_FAVORITE', payload})
 
 export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
 
@@ -39,9 +43,12 @@ const reducer = (state, action) => {
       console.log('update searchString', { ...state, searchString: action.payload });
       return { ...state, searchString: action.payload };
 
-      case 'ADD_LIST':
-        console.log('add list', { ...state, lists: [...state.lists, { ...action.payload, id: shortid()}]});
-      return { ...state, lists: [...state.lists, { ...action.payload, id: shortid()}]};
+    case 'ADD_LIST':
+      console.log('add list', { ...state, lists: [...state.lists, { ...action.payload, id: shortid() }] });
+      return { ...state, lists: [...state.lists, { ...action.payload, id: shortid() }] };
+
+      case 'TOGGLE_CARD_FAVORITE':
+      return { ...state, cards: state.cards.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card) };
 
     default:
       return state;

@@ -4,6 +4,23 @@
 text-align: center;
 padding: 10px;
 }
+.icon {
+  margin: 0;
+  padding: 0;
+}
+.buttonFavorite {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 20px;
+}
+.active{
+  color: red;
+}
+
 
 @media (max-width: 767px) {
 
@@ -11,5 +28,4 @@ padding: 10px;
       width: 100%;
       margin: 0 0 $base-size 0;
     }
-  
   }
