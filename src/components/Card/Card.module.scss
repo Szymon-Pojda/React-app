@@ -13,6 +13,15 @@
     color: $color-dark;
 }
 
+.iconContainer{
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+    width: 50px;
+}
+
+
+
 
 .active{
     color: red;

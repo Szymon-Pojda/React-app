@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import styles from './Favorite.module.scss';
 import Card from '../Card/Card.js';
-import { getFilteredFavoriteCards } from '../../redux/store.js'
+import { getFilteredFavoriteCards } from '../../redux/cardsReducer'
 
 const Favorite = () => {
     const cards = useSelector(state => getFilteredFavoriteCards(state));
