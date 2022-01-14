@@ -1,21 +1,21 @@
 import initialState from './initialState';
 import { createStore, combineReducers } from 'redux';
-import listsReducer from './listsReducer';
-import columnsReducer from './columnsReducer';
-import cardsReducer from './cardsReducer';
+import listsReducer, { ADD_LIST } from './listsReducer';
+import columnsReducer, { ADD_COLUMN } from './columnsReducer';
+import cardsReducer, { ADD_CARD, REMOVE_CARD, TOGGLE_CARD_FAVORITE } from './cardsReducer';
 import searchStringReducer from './searchStringReducer';
 
-export const addColumn = newColumn => ({ type: 'app/columns/ADD_COLUMN', newColumn });
+export const addColumn = newColumn => ({ type: ADD_COLUMN, newColumn });
 
-export const addCard = newCard => ({ type: 'app/cards/ADD_CARD', newCard });
+export const addCard = newCard => ({ type: ADD_CARD, newCard });
 
-export const addList = payload => ({ type: 'app/lists/ADD_LIST', payload });
+export const addList = payload => ({ type: ADD_LIST, payload });
 
 export const getSearchString = payload => ({ type: 'app/cards/UPDATE_SEARCHSTRING', payload });
 
-export const getToggleCardFavorite = payload => ({ type: 'app/cards/TOGGLE_CARD_FAVORITE', payload });
+export const getToggleCardFavorite = payload => ({ type: TOGGLE_CARD_FAVORITE, payload });
 
-export const removeCard = payload => ({type: 'app/cards/REMOVE_CARD', payload})
+export const removeCard = payload => ({type: REMOVE_CARD, payload})
 
 const subreducers = {
   lists: listsReducer,
