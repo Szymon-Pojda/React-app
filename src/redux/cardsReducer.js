@@ -9,9 +9,10 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards
 export const getFilteredFavoriteCards = ({ cards }) => cards.filter(card => card.isFavorite === true);
 
 // actions
-const createActionName = actionName => `app/cards/${actionName}`;
+const createActionName = actionName => `app/cards/TOGGLE_CARD_FAVORITE`;
 const ADD_CARD = createActionName('ADD_CARD');
 const REMOVE_CARD = createActionName('REMOVE_CARD');
+const TOGGLE_CARD_FAVORITE = createActionName('TOGGLE_CARD_FAVORITE');
 
 // action creators
 const cardsReducer = (statePart = [], action) => {

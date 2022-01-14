@@ -12,7 +12,7 @@ const ADD_COLUMN = createActionName('ADD_COLUMN')
 const columnsReducer = (statePart = [], action) => {
     switch(action.type) {
       case 'ADD_COLUMN':
-          console.log("[...statePart, { ...action.newColumn, id: shortid() }]", [...statePart, { ...action.newColumn, id: shortid() }])
+          console.log('[...statePart, { ...action.newColumn, id: shortid() }]', [...statePart, { ...action.newColumn, id: shortid() }])
         return [...statePart, { ...action.newColumn, id: shortid() }];
       default:
         return statePart;
