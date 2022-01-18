@@ -1,3 +1,13 @@
+// actions
+const createActionName = actionName => `app/cards/${actionName}`
+export const UPDATE_SEARCHSTRING = createActionName('UPDATE_SEARCHSTRING')
+
+// action creators
+export const updateSearchString = (payload) => ({
+  type: UPDATE_SEARCHSTRING,
+  payload,
+});
+
 const searchStringReducer = (statePart = '', action) => {
     switch(action.type) {
       case 'UPDATE_SEARCHSTRING':
